@@ -3,6 +3,20 @@ on: [push]
 
 jobs:
   phpunit:
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_DB: namezium
+          POSTGRES_USER: namezium
+          POSTGRES_PASSWORD: postgres
+
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     name: PHPUnit
     runs-on: ubuntu-latest
     steps:
@@ -29,3 +43,5 @@ jobs:
 
       - name: Run tests
         run: php artisan test
+        env:
+          DB_PASSWORD: postgres
