@@ -1,3 +1,7 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&family=Gudea:wght@400;700&display=swap");
+
+/* TailwindCSS */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -6,3 +10,16 @@
  * Main color: #333
  * Secondary color: #1E0B36
  */
+body {
+    font-family: "Gudea", Arial, Helvetica, sans-serif;
+}
+
+h1,
+h2 {
+    font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+#page {
+    max-width: 896px;
+    margin: 0 auto;
+}
