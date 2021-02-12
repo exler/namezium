@@ -17,7 +17,7 @@ class CreateGeneratorsTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string("title", 100)->unique();
-            $table->string("slug", 100)->unique();
+            $table->string("slug", 100)->unique()->nullable();
             $table->string("description", 200);
             $table->foreignId("category_id")->constrained();
         });
