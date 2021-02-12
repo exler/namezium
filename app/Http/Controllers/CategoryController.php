@@ -2,17 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
     public function index()
     {
-        return view("index");
+        $categories = Category::all();
+        return view("index", ["categories" => $categories]);
     }
 
-    public function show()
+    public function show(string $slug)
     {
-        return view("category");
+        $category = Category::whereSlug($slug)->firstOrFail();
+        return view("category", ["category" => $category]);
     }
 }

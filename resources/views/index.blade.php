@@ -4,24 +4,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div id="categories">
-                        <x-category-card>
-                            <x-slot name="title">
-                                RPG Names
-                            </x-slot>
-
-                            <x-slot name="description">
-                                Fantasy names for Dungeons & Dragons, Pathfinder and other RPG games.
-                            </x-slot>
-                        </x-category-card>
-                        <x-category-card>
-                            <x-slot name="title">
-                                Sci-Fi Names
-                            </x-slot>
-
-                            <x-slot name="description">
-                                Science fiction names for Neuroshima, Cyberpunk and other futuristic games.
-                            </x-slot>
-                        </x-category-card>
+                        @foreach ($categories as $category)
+                        <x-category-card :category="$category" />
+                        @endforeach
                     </div>
                     <div id="pagination">
                         <div class="flex flex-col items-center">

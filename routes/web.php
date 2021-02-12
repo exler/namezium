@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GeneratorController;
-use App\Http\Controllers\IndexController;
 use App\Http\Controllers\NameController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [CategoryController::class, "index"]);
 
-Route::get("/{category}", [CategoryController::class, "show"]);
+Route::get("/{slug}", [CategoryController::class, "show"]);
 
-Route::get("generator/", [GeneratorController::class, "show"]);
+Route::get("generator/{slug}", [GeneratorController::class, "show"]);
 
-Route::get("name/", [NameController::class, "show"]);
+Route::get("name/{name}", [NameController::class, "show"]);
 
 require __DIR__ . '/auth.php';

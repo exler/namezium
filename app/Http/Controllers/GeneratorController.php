@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Generator;
 
 class GeneratorController extends Controller
 {
-    public function show()
+    public function show(string $slug)
     {
-        return view("generator");
+        $generator = Generator::whereSlug($slug)->firstOrFail();
+        return view("generator", ["generator" => $generator]);
     }
 }
