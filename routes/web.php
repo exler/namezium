@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\GeneratorController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\NameController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,12 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get("/", [CategoryController::class, "index"]);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+Route::get("/{category}", [CategoryController::class, "show"]);
+
+Route::get("generator/", [GeneratorController::class, "show"]);
+
+Route::get("name/", [NameController::class, "show"]);
 
 require __DIR__ . '/auth.php';

@@ -5,7 +5,7 @@
                 <div class="text-xl uppercase font-bold">
                     {{ $title }}
                 </div>
-                <div class="text-xs text-gray-500">
+                <div class="text-xs text-gray-700">
                     {{ $slot }}
                 </div>
             </div>

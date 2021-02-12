@@ -1,16 +1,10 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <div id="generators">
-                        <x-generator-category>
+                    <div id="categories">
+                        <x-category-card>
                             <x-slot name="title">
                                 RPG Names
                             </x-slot>
@@ -18,67 +12,16 @@
                             <x-slot name="description">
                                 Fantasy names for Dungeons & Dragons, Pathfinder and other RPG games.
                             </x-slot>
-
-                            <x-generator-card>
-                                <x-slot name="title">
-                                    Elf Names
-                                </x-slot>
-
-                                <p>Generate Elf names for your character!</p>
-                            </x-generator-card>
-                            <x-generator-card>
-                                <x-slot name="title">
-                                    Human Names
-                                </x-slot>
-
-                                <p>Generate Human names for your character!</p>
-                            </x-generator-card>
-                            <x-generator-card>
-                                <x-slot name="title">
-                                    Dwarf Names
-                                </x-slot>
-
-                                <p>Generate Dwarf names for your character!</p>
-                            </x-generator-card>
-                            <x-generator-card>
-                                <x-slot name="title">
-                                    Orc Names
-                                </x-slot>
-
-                                <p>Generate Orc names for your character!</p>
-                            </x-generator-card>
-                            <x-generator-card>
-                                <x-slot name="title">
-                                    Halfling Names
-                                </x-slot>
-
-                                <p>Generate Names names for your character!</p>
-                            </x-generator-card>
-                        </x-generator-category>
-                        <x-generator-category>
+                        </x-category-card>
+                        <x-category-card>
                             <x-slot name="title">
                                 Sci-Fi Names
                             </x-slot>
 
                             <x-slot name="description">
-                                Sci-Fi names for Neuroshima, Cyberpunk and other futuristic games.
+                                Science fiction names for Neuroshima, Cyberpunk and other futuristic games.
                             </x-slot>
-
-                            <x-generator-card>
-                                <x-slot name="title">
-                                    Cyborg Names
-                                </x-slot>
-
-                                <p>Generate Cyborg names for your character!</p>
-                            </x-generator-card>
-                            <x-generator-card>
-                                <x-slot name="title">
-                                    Robot Names
-                                </x-slot>
-
-                                <p>Generate Robot names for your character!</p>
-                            </x-generator-card>
-                        </x-generator-category>
+                        </x-category-card>
                     </div>
                     <div id="pagination">
                         <div class="flex flex-col items-center">
