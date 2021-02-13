@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateGeneratorsTable extends Migration
 {
@@ -21,6 +22,9 @@ class CreateGeneratorsTable extends Migration
             $table->string("description", 200);
             $table->foreignId("category_id")->constrained();
         });
+
+        DB::statement('ALTER TABLE generators ADD searchable tsvector NULL');
+        DB::statement('CREATE INDEX generators_searchable_index ON generators USING GIN (searchable)');
     }
 
     /**

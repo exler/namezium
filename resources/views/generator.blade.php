@@ -8,7 +8,7 @@
             <div class="sm:flex sm:items-center px-2">
                 <div class="flex-grow">
                     <div class="w-full">
-                        @foreach ($generator->names as $name)
+                        @forelse ($generator->names as $name)
                         <a href="{{ route('name', urlencode($name->value)) }}" class="flex cursor-pointer my-1 hover:bg-blue-500 hover:text-gray-100 rounded">
                             <div class="w-8 h-10 text-center py-1">
                                 <p class="text-3xl p-0 text-green-dark">&bull;</p>
@@ -20,7 +20,9 @@
                                 <p class="text-sm text-light-blue">Check availability!</p>
                             </div>
                         </a>
-                        @endforeach
+                        @empty
+                        <p>No generators are available for this category yet!</p>
+                        @endforelse
                     </div>
                 </div>
             </div>
