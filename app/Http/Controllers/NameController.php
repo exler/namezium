@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class NameController extends Controller
 {
     public function show(string $name)
     {
-        return view("name");
+        $name = urldecode($name);
+        return view("name", ["name" => $name]);
     }
 }
