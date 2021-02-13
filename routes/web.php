@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+require __DIR__ . '/auth.php';
+
 Route::get("/", [CategoryController::class, "index"])->name("home");
 
 Route::get("generators/", [GeneratorController::class, "index"])->name("generators");
@@ -25,5 +27,3 @@ Route::get("/{slug}", [CategoryController::class, "show"])->name("category");
 Route::get("{category_slug}/generator/{generator_slug}", [GeneratorController::class, "show"])->name("generator");
 
 Route::get("name/{name}", [NameController::class, "show"])->name("name");
-
-require __DIR__ . '/auth.php';
