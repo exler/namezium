@@ -8,6 +8,9 @@
 
     <title>{{ config('app.name', 'Namezium') }}</title>
 
+    <!-- Icon -->
+    <link rel="icon" href="{{ asset('img/favicon.png') }}">
+
     <!-- Styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
