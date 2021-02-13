@@ -1,8 +1,10 @@
 <x-app-layout>
     <div id="categories">
-        @foreach ($categories as $category)
+        @forelse ($categories as $category)
         <x-category-card :category="$category" />
-        @endforeach
+        @empty
+        <p>No categories added yet!</p>
+        @endforelse
     </div>
     <div id="pagination">
         {{ $categories->links() }}

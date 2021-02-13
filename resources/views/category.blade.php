@@ -4,7 +4,7 @@
             @forelse ($category->generators as $generator)
             <x-generator-card :generator="$generator" :category="$category" />
             @empty
-            <p>No categories added yet!</p>
+            <p>No generators are available for this category yet!</p>
             @endforelse
         </x-generator-category>
     </div>

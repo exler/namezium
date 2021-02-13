@@ -4,9 +4,10 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\App;
+use Illuminate\Database\QueryException;
 
 use App\Models\User;
-use Illuminate\Database\QueryException;
 
 class CreateAdmin extends Command
 {
@@ -51,10 +52,14 @@ class CreateAdmin extends Command
             $user->admin = true;
             $user->save();
 
-            printf("User '%s' successfully created!", $username);
+            if (!App::environment("testing"))
+                printf("User '%s' successfully created!", $username);
+
             return 0;
         } catch (QueryException $e) {
-            printf("User '%s' already exists in database!", $username);
+            if (!App::environment("testing"))
+                printf("User '%s' already exists in database!", $username);
+
             return 1;
         }
     }
