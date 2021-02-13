@@ -1,5 +1,5 @@
 <div class="border-solid border-2 p-2 rounded-md mb-2 transition-all hover:border-indigo-900">
-    <a href="{{ url('/' . $category->slug) }}" class="flex w-full">
+    <a href="{{ route('category', $category->slug) }}" class="flex w-full">
         <h3 class="lg:w-1/4 text-2xl font-bold pr-4">
             {{ $category->title }}
         </h3>

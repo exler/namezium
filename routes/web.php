@@ -18,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [CategoryController::class, "index"]);
 
-Route::get("/{slug}", [CategoryController::class, "show"]);
+Route::get("/{slug}", [CategoryController::class, "show"])->name("category");
 
-Route::get("generator/{slug}", [GeneratorController::class, "show"]);
+Route::get("{category_slug}/generator/{generator_slug}", [GeneratorController::class, "show"])->name("generator");
 
-Route::get("name/{name}", [NameController::class, "show"]);
+Route::get("name/{name}", [NameController::class, "show"])->name("name");
 
 require __DIR__ . '/auth.php';
