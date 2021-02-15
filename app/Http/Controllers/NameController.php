@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Iodev\Whois\Factory;
+use Exler\Whois\Whois;
 
 class NameController extends Controller
 {
     public function show(string $name)
     {
         $name = preg_replace("/[^A-Za-z0-9\-]/", "", urldecode($name));
+        $whois = new Whois;
 
-        $whois = Factory::get()->createWhois();
         $domains = [
             $name . ".com" => false,
             $name . ".org" => false,
@@ -19,7 +19,7 @@ class NameController extends Controller
             $name . ".io" => false
         ];
         foreach ($domains as $domain => $available) {
-            if ($whois->isDomainAvailable($domain))
+            if ($whois->isAvailable($domain))
                 $domains[$domain] = true;
         }
 
