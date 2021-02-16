@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminUserController extends Controller
 {
@@ -82,6 +83,9 @@ class AdminUserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        if (Auth::user() != $user)
+            $user->delete();
+
+        return back();
     }
 }

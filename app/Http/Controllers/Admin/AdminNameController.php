@@ -82,6 +82,7 @@ class AdminNameController extends Controller
      */
     public function destroy(Name $name)
     {
-        //
+        $name->delete();
+        return back();
     }
 }

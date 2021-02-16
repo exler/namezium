@@ -82,6 +82,7 @@ class AdminGeneratorController extends Controller
      */
     public function destroy(Generator $generator)
     {
-        //
+        $generator->delete();
+        return back();
     }
 }
