@@ -12,9 +12,9 @@ class CategoryController extends Controller
         return view("index", ["categories" => $categories]);
     }
 
-    public function show(string $slug)
+    public function show(string $category_slug)
     {
-        $category = Category::whereSlug($slug)->firstOrFail();
+        $category = Category::whereSlug($category_slug)->firstOrFail();
         return view("category", ["category" => $category]);
     }
 }

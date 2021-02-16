@@ -21,7 +21,7 @@
                             </div>
                         </a>
                         @empty
-                        <p>No names are available for this generator yet!</p>
+                        <p class="text-center">No names are available for this generator yet!</p>
                         @endforelse
                     </div>
                 </div>

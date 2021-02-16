@@ -11,7 +11,6 @@ class Name extends Model
 
     protected $fillable = [
         'title',
-        'description',
         'generator_id'
     ];
 
