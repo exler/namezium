@@ -55,7 +55,8 @@ class AdminNameController extends Controller
      */
     public function edit(Name $name)
     {
-        //
+        $generators = Generator::all();
+        return view("admin.admin-names-create", ["generators" => $generators, "name" => $name]);
     }
 
     /**
@@ -67,7 +68,12 @@ class AdminNameController extends Controller
      */
     public function update(Request $request, Name $name)
     {
-        //
+        $validatedData = $request->validate([
+            'value' => ['required', 'unique:names'],
+            'generator_id' => ['required']
+        ]);
+        $name->fill($validatedData)->save();
+        return redirect(route("admin-names"));
     }
 
     /**

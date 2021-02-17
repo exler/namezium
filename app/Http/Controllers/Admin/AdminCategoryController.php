@@ -54,7 +54,7 @@ class AdminCategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view("admin.admin-categories-create", ["category" => $category]);
     }
 
     /**
@@ -66,7 +66,13 @@ class AdminCategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => ['required', 'unique:categories', 'max:100'],
+            'description' => ['required', 'max:200'],
+        ]);
+
+        $category->fill($validatedData)->save();
+        return redirect(route("admin-categories"));
     }
 
     /**

@@ -61,7 +61,7 @@ class AdminUserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view("admin.admin-users-create", ["user" => $user]);
     }
 
     /**
@@ -73,7 +73,18 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $validatedData = $request->validate([
+            'username' => ['required', 'unique:users'],
+            'password' => ['required'],
+            'admin' => []
+        ]);
+
+        $user->fill([
+            "username" => $validatedData["username"],
+            "password" => Hash::make($validatedData["password"]),
+            "admin" => isset($validatedData["admin"]) ? true : false
+        ])->save();
+        return redirect(route("admin-users"));
     }
 
     /**

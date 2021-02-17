@@ -57,7 +57,8 @@ class AdminGeneratorController extends Controller
      */
     public function edit(Generator $generator)
     {
-        //
+        $categories = Category::all();
+        return view("admin.admin-generators-create", ["categories" => $categories, "generator" => $generator]);
     }
 
     /**
@@ -69,7 +70,14 @@ class AdminGeneratorController extends Controller
      */
     public function update(Request $request, Generator $generator)
     {
-        //
+        $validatedData = $request->validate([
+            'title' => ['required', 'unique:generators', 'max:100'],
+            'description' => ['required', 'max:200'],
+            'category_id' => ['required']
+        ]);
+
+        $generator->fill($validatedData)->save();
+        return redirect(route("admin-generators"));
     }
 
     /**

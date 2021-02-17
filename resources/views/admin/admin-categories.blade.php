@@ -16,7 +16,7 @@
                     <td class="p-3 px-5">{{ $category->slug }}</td>
                     <td class="p-3 px-5">{{ $category->description }}</td>
                     <td class="p-3 px-5 flex justify-end">
-                        <button type="button" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</button>
+                        <a href="{{ route('category.edit', $category->id)}}" class="mr-3 text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-2 rounded focus:outline-none focus:shadow-outline">Edit</a>
                         <form action="{{ route('category.destroy', $category->id) }}" method="POST">
                             @method('DELETE')
                             @csrf
