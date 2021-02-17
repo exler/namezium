@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Generator;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class AdminGeneratorController extends Controller
@@ -26,7 +27,8 @@ class AdminGeneratorController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view("admin.admin-generators-create", ["categories" => $categories]);
     }
 
     /**
@@ -37,18 +39,14 @@ class AdminGeneratorController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validatedData = $request->validate([
+            'title' => ['required', 'unique:generators', 'max:100'],
+            'description' => ['required', 'max:200'],
+            'category_id' => ['required']
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Generator  $generator
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Generator $generator)
-    {
-        //
+        Generator::create($validatedData);
+        return redirect(route("admin-generators"));
     }
 
     /**

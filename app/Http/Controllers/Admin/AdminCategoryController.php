@@ -26,7 +26,7 @@ class AdminCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.admin-categories-create");
     }
 
     /**
@@ -37,18 +37,13 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validatedData = $request->validate([
+            'title' => ['required', 'unique:categories', 'max:100'],
+            'description' => ['required', 'max:200'],
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Category $category)
-    {
-        //
+        Category::create($validatedData);
+        return redirect(route("admin-categories"));
     }
 
     /**

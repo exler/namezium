@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminUserController extends Controller
 {
@@ -27,7 +28,7 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.admin-users-create");
     }
 
     /**
@@ -38,18 +39,18 @@ class AdminUserController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $validatedData = $request->validate([
+            'username' => ['required', 'unique:users'],
+            'password' => ['required'],
+            'admin' => []
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
+        User::create([
+            "username" => $validatedData["username"],
+            "password" => Hash::make($validatedData["password"]),
+            "admin" => isset($validatedData["admin"]) ? true : false
+        ]);
+        return redirect(route("admin-users"));
     }
 
     /**

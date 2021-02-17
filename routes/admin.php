@@ -11,8 +11,8 @@ Route::group(['middleware' => ['auth', 'admin'], "prefix" => "admin"], function 
         return redirect(route("admin-categories"));
     })->name("admin");
 
-    Route::resource("category", AdminCategoryController::class)->name("index", "admin-categories");
-    Route::resource("generator", AdminGeneratorController::class)->name("index", "admin-generators");
-    Route::resource("name", AdminNameController::class)->name("index", "admin-names");
-    Route::resource("user", AdminUserController::class)->name("index", "admin-users");
+    Route::resource("category", AdminCategoryController::class)->name("index", "admin-categories")->except(["show"]);
+    Route::resource("generator", AdminGeneratorController::class)->name("index", "admin-generators")->except(["show"]);
+    Route::resource("name", AdminNameController::class)->name("index", "admin-names")->except(["show"]);
+    Route::resource("user", AdminUserController::class)->name("index", "admin-users")->except(["show"]);
 });

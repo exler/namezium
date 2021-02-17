@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Name;
+use App\Models\Generator;
 use Illuminate\Http\Request;
 
 class AdminNameController extends Controller
@@ -26,7 +27,8 @@ class AdminNameController extends Controller
      */
     public function create()
     {
-        //
+        $generators = Generator::all();
+        return view("admin.admin-names-create", ["generators" => $generators]);
     }
 
     /**
@@ -37,18 +39,12 @@ class AdminNameController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Name  $name
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Name $name)
-    {
-        //
+        $validatedData = $request->validate([
+            'value' => ['required', 'unique:names'],
+            'generator_id' => ['required']
+        ]);
+        Name::create($validatedData);
+        return redirect(route("admin-names"));
     }
 
     /**

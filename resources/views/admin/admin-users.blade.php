@@ -1,7 +1,7 @@
 <x-app-layout>
-    <x-admin-tabs />
+    <x-admin-tabs page="user" />
 
-    <div class="mt-2">
+    <div>
         <table class="w-full text-md bg-white shadow-md rounded mb-4">
             <tbody>
                 <tr class="border-b">
