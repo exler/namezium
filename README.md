@@ -1,6 +1,6 @@
 <p align="center">
     <img src="docs/logo.png" width="256">
-    <p align="center">👑 Random name generator with domain availability lookup</p>
+    <p align="center">👑 Web application for generating names using Markov chains with domain availability lookup </p>
 </p>
 
 ## Installation
