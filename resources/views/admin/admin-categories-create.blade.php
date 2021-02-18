@@ -2,7 +2,7 @@
     <x-admin-tabs />
 
     <div>
-        @if ($category->exists)
+        @if (isset($category))
         <form method="POST" action="{{ route('category.update', $category->id) }}">
             @method('PUT')
             @else
@@ -12,12 +12,12 @@
 
                 <div>
                     <x-label for="title">Title</x-label>
-                    <x-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title', $category->exists ? $category->title : '')" required autofocus />
+                    <x-input id="title" class="block mt-1 w-full" type="text" name="title" :value="old('title', isset($category) ? $category->title : '')" required autofocus />
                 </div>
                 <div class="mt-4">
                     <x-label for="description">Description</x-label>
                     <x-textarea id="description" class="block mt-1 w-full" type="text" name="description" required>
-                        {{ old('description', $category->exists ? $category->description : '') }}
+                        {{ old('description', isset($category) ? $category->description : '') }}
                     </x-textarea>
                 </div>
 

@@ -41,7 +41,6 @@ class AdminGeneratorController extends Controller
     {
         $validatedData = $request->validate([
             'title' => ['required', 'unique:generators', 'max:100'],
-            'description' => ['required', 'max:200'],
             'category_id' => ['required']
         ]);
 
@@ -72,7 +71,6 @@ class AdminGeneratorController extends Controller
     {
         $validatedData = $request->validate([
             'title' => ['required', 'unique:generators', 'max:100'],
-            'description' => ['required', 'max:200'],
             'category_id' => ['required']
         ]);
 

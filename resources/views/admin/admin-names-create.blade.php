@@ -2,7 +2,7 @@
     <x-admin-tabs />
 
     <div>
-        @if ($name->exists)
+        @if (isset($name))
         <form method="POST" action="{{ route('name.update', $name->id) }}">
             @method('PUT')
             @else
@@ -12,13 +12,13 @@
 
                 <div>
                     <x-label for="value">Value</x-label>
-                    <x-input id="value" class="block mt-1 w-full" type="text" name="value" :value="old('value', $name->exists ? $name->value : '')" required autofocus />
+                    <x-input id="value" class="block mt-1 w-full" type="text" name="value" :value="old('value', isset($name) ? $name->value : '')" required autofocus />
                 </div>
                 <div class="mt-4">
                     <x-label for="generators">Generators</x-label>
                     <x-select id="generators" class="block mt-1 w-full" name="generator_id" required>
                         @forelse ($generators as $generator)
-                        <option value="{{ $generator->id }}" @if($name->exists && $generator==$name->generator) selected @endif>{{ $generator->title }}</option>
+                        <option value="{{ $generator->id }}" @if(isset($name) && $generator==$name->generator) selected @endif>{{ $generator->title }}</option>
                         @empty
                         <option disabled>No generator available!</option>
                         @endforelse

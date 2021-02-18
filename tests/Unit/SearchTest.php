@@ -17,7 +17,6 @@ class SearchTest extends TestCase
         $category = Category::factory()->create();
         $generator = new Generator;
         $generator->title = "Lorem ipsum";
-        $generator->description = "Dolor sit amet";
         $generator->category_id = $category->id;
         $generator->save();
 

@@ -24,7 +24,6 @@ class GeneratorFactory extends Factory
     {
         return [
             'title' => ucwords(implode(" ", $this->faker->words(2))),
-            'description' => $this->faker->sentence(6),
             'category_id' => $this->faker->numberBetween(1, Category::count())
         ];
     }

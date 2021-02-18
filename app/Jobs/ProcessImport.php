@@ -46,7 +46,6 @@ class ProcessImport implements ShouldQueue
             foreach ($category["generators"] as $generator) {
                 $gen = Generator::create([
                     "title" => $generator["generator_title"],
-                    "description" => $generator["generator_desc"],
                     "category_id" => $cat->id
                 ]);
 

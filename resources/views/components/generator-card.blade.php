@@ -5,9 +5,6 @@
                 <div class="text-xl uppercase font-bold">
                     {{ $generator->title }}
                 </div>
-                <div class="text-xs text-gray-700">
-                    {{ $generator->description }}
-                </div>
             </div>
         </a>
     </div>

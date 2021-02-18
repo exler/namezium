@@ -2,7 +2,7 @@
     <x-admin-tabs />
 
     <div>
-        @if ($user->exists)
+        @if (isset($user))
         <form method="POST" action="{{ route('user.update', $user->id) }}">
             @method('PUT')
             @else
@@ -12,7 +12,7 @@
 
                 <div>
                     <x-label for="username">Username</x-label>
-                    <x-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username', $user->exists ? $user->username : '')" required autofocus />
+                    <x-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username', isset($user) ? $user->username : '')" required autofocus />
                 </div>
                 <div>
                     <x-label for="password">Password</x-label>
@@ -20,7 +20,7 @@
                 </div>
                 <div class="block mt-4">
                     <label for="admin" class="inline-flex items-center">
-                        <input id="admin" type="checkbox" @if($user->exists && $user->admin) checked @endif class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="admin">
+                        <input id="admin" type="checkbox" @if(isset($user) && $user->admin) checked @endif class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="admin">
                         <span class="ml-2 text-sm text-gray-600">Admin</span>
                     </label>
                 </div>

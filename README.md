@@ -52,7 +52,6 @@ You can import JSON data through the admin panel. The JSON structure should look
         "generators": [
             {
                 "generator_title": "Generator Title",
-                "generator_desc": "Generator Description",
                 "names": ["name1", "name2"]
             }
         ]

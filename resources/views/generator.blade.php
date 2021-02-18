@@ -2,7 +2,6 @@
     <div id="generator">
         <div id="generator-details" class="text-center mb-4">
             <h2 class="text-2xl font-bold">{{ $generator->title }}</h2>
-            <p class="text-base">{{ $generator->description }}</p>
         </div>
         <div id="names" class="border-solid border-2 rounded-sm lg:w-3/4 pt-2 m-auto">
             <div class="sm:flex sm:items-center px-2">
