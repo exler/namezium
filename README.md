@@ -41,6 +41,26 @@ Run tests:
 $ php artisan test
 ```
 
+## Importing data
+
+You can import JSON data through the admin panel. The JSON structure should look like this:
+```json
+[
+    {
+        "category_title": "Category Title",
+        "category_desc": "Category Description",
+        "generators": [
+            {
+                "generator_title": "Generator Title",
+                "generator_desc": "Generator Description",
+                "names": ["name1", "name2"]
+            }
+        ]
+    }
+]
+
+```
+
 ## License
 
 Copyright (c) 2021 by ***Kamil Marut***

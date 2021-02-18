@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminCategoryController;
 use App\Http\Controllers\Admin\AdminGeneratorController;
 use App\Http\Controllers\Admin\AdminNameController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\ImportController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['auth', 'admin'], "prefix" => "admin"], function () {
@@ -15,4 +16,6 @@ Route::group(['middleware' => ['auth', 'admin'], "prefix" => "admin"], function 
     Route::resource("generator", AdminGeneratorController::class)->name("index", "admin-generators")->except(["show"]);
     Route::resource("name", AdminNameController::class)->name("index", "admin-names")->except(["show"]);
     Route::resource("user", AdminUserController::class)->name("index", "admin-users")->except(["show"]);
+
+    Route::post("/import", [ImportController::class, "import"])->name("import");
 });
