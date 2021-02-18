@@ -20,10 +20,10 @@ class SearchTest extends TestCase
         $generator->category_id = $category->id;
         $generator->save();
 
-        $result = Generator::search("ipsum")->get();
+        $result = Generator::search("lorem")->get();
         $this->assertNotEmpty($result);
 
-        $result = Generator::search("sit")->get();
+        $result = Generator::search("ipsum")->get();
         $this->assertNotEmpty($result);
 
         $result = Generator::search("not")->get();
