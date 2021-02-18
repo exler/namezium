@@ -35,6 +35,11 @@ Create user with administrator privileges to access admin panel:
 $ php artisan create:admin
 ```
 
+Generate name and optionally add it to the database:
+```bash
+$ php artisan generate:markov <generator_slug>
+```
+
 Run tests:
 
 ```bash
