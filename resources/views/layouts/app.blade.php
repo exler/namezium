@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta name="description" content="Generate random names to use in books, games & startups and check the availability of their domains!">
+    <meta name="keywords" content="name generator, domain availability, domain lookup">
     <title>{{ config('app.name', 'Namezium') }}</title>
 
     <!-- Icon -->
