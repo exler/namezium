@@ -12,7 +12,7 @@ class GeneratorController extends Controller
     {
         $query = $request->input("search");
         if ($query)
-            $generators = Generator::search("\'" . $query . "\'")->paginate(16);
+            $generators = Generator::search(sprintf("'%s'", $query))->paginate(16);
         else
             $generators = Generator::paginate(16);
         return view("generators", ["generators" => $generators, "query" => $query]);
