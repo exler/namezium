@@ -16,21 +16,21 @@
                         <div>
                             <h5>Domain is available!</h5>
                         </div>
-                        <a href="https://www.namecheap.com/domains/registration/results/?domain={{ strtolower($domain) }}" class="flex items-center justify-center w-full p-2 pl-4 text-white bg-red-600 sm:w-auto rounded hover:bg-red-900">
+                        <a href="https://www.ovh.com/order/webcloud/#/webCloud/domain/select?selection=~()&search={{ strtolower($domain) }}" class="domain-buy flex flex-grow items-center justify-center w-full p-2 pl-4 text-white bg-purple-800 sm:w-auto rounded hover:bg-purple-900">
                             <svg role="img" fill="#FFFFFF" width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <title>Namecheap icon</title>
-                                <path d="M17.295 17.484c.227.403.57.728.985.931-.309.15-.647.229-.99.232h-3.068a2.26 2.26 0 0 1-1.957-1.143L6.705 6.511a2.27 2.27 0 0 0-.974-.922c.309-.153.652-.233.997-.232h3.05c.81.003 1.558.438 1.959 1.143l5.558 10.984zm-9.329-7.392L6.269 6.755c-.209-.392-.582-.657-.984-.829-.204.165-.391.35-.522.581-.184.349-4.391 8.648-4.569 8.987a2.245 2.245 0 0 0 4.016 1.999l3.756-7.401zm15.846-1.593a2.245 2.245 0 0 0-1.162-2.955v-.001a2.243 2.243 0 0 0-.892-.187l-.003-.011c-.816 0-1.569.443-1.965 1.157l-3.749 7.414 1.689 3.323c.213.399.59.664.998.839.252-.2.473-.444.605-.742l4.479-8.837z" />
+                                <title>OVH icon</title>
+                                <path d="M19.881 10.095l2.563-4.45C23.434 7.389 24 9.404 24 11.555c0 2.88-1.017 5.523-2.71 7.594h-6.62l2.04-3.541h-2.696l3.176-5.513h2.691zm-2.32-5.243L9.333 19.14l.003.009H2.709C1.014 17.077 0 14.435 0 11.555c0-2.152.57-4.17 1.561-5.918L5.855 13.1 10.6 4.852h6.961z" />
                             </svg>
-                            <span class="pl-2">Buy on Namecheap</span>
+                            <span class="pl-2">Buy on OVH</span>
                         </a>
                     </div>
                     @else
                     <div class="flex flex-col items-center justify-end col-span-5 mt-4 space-y-4 sm:mt-0 sm:space-y-0 sm:flex-row sm:col-span-3">
-                        <div class="flex items-center justify-center w-full p-2 text-white bg-gray-700 sm:w-auto rounded">
+                        <div class="domain-buy flex flex-grow items-center justify-center w-full p-2 text-white bg-gray-700 sm:w-auto rounded">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-x-square-fill" viewBox="0 0 16 16">
                                 <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z" />
                             </svg>
-                            <span class="pl-2">Domain unavailable!</span>
+                            <span class="pl-2">Unavailable</span>
                         </div>
                     </div>
                     @endif
