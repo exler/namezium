@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.3|^8.0",
         "cviebrock/eloquent-sluggable": "^8.0",
+        "diglactic/laravel-breadcrumbs": "^6.1",
         "exler/simple-php-whois": "dev-main",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",

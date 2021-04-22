@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="breadcrumbs">
+        {{ Breadcrumbs::render("generator", $generator) }}
+    </x-slot>
+
     <div id="generator">
         <div id="generator-details" class="text-center mb-4">
             <h2 class="text-2xl font-bold">{{ $generator->title }}</h2>

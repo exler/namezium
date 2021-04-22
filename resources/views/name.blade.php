@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="breadcrumbs">
+        {{ Breadcrumbs::render("name", $name) }}
+    </x-slot>
+
     <div id="name">
         <div id="name-details" class="text-center mb-4 border-solid border-b-2 pb-2">
             <h2 class="text-3xl font-bold">{{ $name }}</h2>

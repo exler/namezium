@@ -1,4 +1,8 @@
 <x-app-layout>
+    <x-slot name="breadcrumbs">
+        {{ Breadcrumbs::render("category", $category) }}
+    </x-slot>
+
     <div id="generators">
         <x-generator-category :category="$category">
             @forelse ($category->generators as $generator)
